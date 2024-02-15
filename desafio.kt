@@ -29,23 +29,24 @@ data class Formacao(
     fun gerarFicha() {
         print(
                 """
-        ============== $codigo - $nome ==============
-        Inscritos: ${inscritos.size}
-        Duração: $duracao horas com ${conteudos.size} modulos
-        Nivel: $nivel
+        ### $codigo. $nome 
+        
+            Inscritos: ${inscritos.size}
+            Duração: $duracao horas com ${conteudos.size} modulos
+            Nivel: $nivel
     
-        Programa:
+            Programa:
         """
         )
         println()
-        conteudos.forEach { (_codigo, _nome) -> println("\t\t $_codigo - $_nome.") }
+        conteudos.forEach { (_codigo, _nome) -> println("\t\t$_codigo - $_nome.") }
         println()
     }
 }
 
 fun main() {
 
-    // ------------------------- Formação
+    // -------------------------  Formação
     val curso1 =
             Formacao(1, "Mergulho em Sql", Nivel.TODOS_NIVEIS, 60).apply {
                 conteudos =
@@ -80,7 +81,7 @@ fun main() {
 
     // -------------------------- Visualizando o resultado
 
-    println("\n\t********************** Fichas Formativas **********************")
+    println("\n\t********************************* FICHAS FORMATIVAS *********************************")
     curso1.gerarFicha()
     curso2.gerarFicha()
 }
